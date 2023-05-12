@@ -1,0 +1,22 @@
+{
+  "name": "defender-game",
+  "version": "1.0.0",
+  "description": "\"Браузерная игра\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/AlexRemar/defender-game.git"
+  },
+  "keywords": [
+    "игра"
+  ],
+  "author": "remar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexRemar/defender-game/issues"
+  },
+  "homepage": "https://github.com/AlexRemar/defender-game#readme"
+}
