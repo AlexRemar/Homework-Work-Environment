@@ -1,22 +1,13 @@
 Домашнее задание к лекции «Рабочее окружение»
 
 npm package
+
 Легенда
-Итак, вы решили организовать разработку игры с использованием правильных инструментов, а именно что проект нужно создавать с помощью npm, управлять зависимостями и сборкой тоже с его помощью.
+Итак, вы решили организовать разработку игры с использованием правильных инструментов, а именно что проект нужно создавать с помощью npm, 
+управлять зависимостями и сборкой тоже с его помощью.
 
 Описание
-Создайте проект на GitHub-проект, после чего с помощью npm init сгенерируйте package:
-
-package name - defender-game
-version - 1.0.0
-description - "Browser based game"
-entry point - index.js
-test command - оставьте пустым
-git repository - URL вашего GitHub репозитория
-keywords - game
-author - ваше имя или псевдоним
-license - ISC
-Добавьте .gitignore, который мы для вас приготовили.
+Создайте проект на GitHub-проект, после чего с помощью npm init сгенерируйте package
 
 Babel
 Легенда
@@ -24,45 +15,6 @@ Babel
 
 Описание
 Ваша задача подключить Babel к проекту и настроить сборку с его использованием.
-
-Установите Babel (npm install --save-dev @babel/core @babel/cli @babel/preset-env).
-
-Установите CoreJS (npm install core-js@3).
-
-Настройте скрипт запуска build для сборки с помощью npm. Для этого в секции scripts файла package.json пропишите:
-
-{
-    ...
-    "scripts": {
-        ...
-        "build": "babel src -d dist"
-        ...
-    }
-}
-Создайте конфиг .babelrc и пропишите @babel/preset-env:
-{
-  "presets": [
-    [
-      "@babel/preset-env",
-      {
-        "useBuiltIns": "usage",
-        "corejs": 3
-      }
-    ]
-  ]
-}
-Создайте файл src/app.js со следующим содержимым:
-const characters = [
-  {name: 'мечник', health: 10},
-  {name: 'маг', health: 100},
-  {name: 'маг', health: 0},
-  {name: 'лучник', health: 0},
-];
-
-const alive = characters.filter(item => item.health > 0);
-Удостоверьтесь, что проект собирается, если в консоли запустить команду npm run build, и в каталоге dist формируется преобразованный Babel код.
-
-Добавьте каталог dist в .gitignore.
 
 ESLint 
 
@@ -72,57 +24,3 @@ ESLint
 Описание
 Ваша задача «прикрутить» ESLint к проекту и настроить работу с его использованием.
 
-Установка:
-
-npm install --save-dev eslint
-npx eslint --init
-При инициализации конфиг-файла выберите те же опции, что указаны в лекции:
-
-How would you like to use ESLint? To check syntax, find problems, and enforce code style
-What type of modules does your project use? JavaScript modules (import/export)
-Which framework does your project use? None of this
-Where does your code run? Browser
-How would you like to define a style for your project? Use a popular style guide
-Which style guide do you want to follow? Airbnb
-What format do you want your config file to be in? JSON
-Would you like to install them now with npm? Y
-Настройте скрипт запуска lint для npm. Для этого в секции scripts файла package.json пропишите:
-
-{
-    ...
-    "scripts": {
-        ...
-        "lint": "eslint ."
-        ...
-    }
-}
-Создайте файл src/app.js со следующим содержимым:
-
-const characters = [
-  {name: 'мечник', health: 10},
-  {name: 'маг', health: 100},
-  {name: 'маг', health: 0},
-  {name: 'лучник', health: 0}
-];
-
-const alive = characters.filter(item => item.health > 0);
-Содержимое .eslintignore:
-
-dist
-Содержимое .eslintrc.json:
-
-{
-    "extends": "airbnb-base",
-    "env": {
-        "es6": true,
-        "browser": true
-    },
-    "rules": {
-        "no-restricted-syntax": [
-            "error",
-            "LabeledStatement",
-            "WithStatement"
-        ]
-   }
-}
-Запустите ESLint и удостоверьтесь, что вам показываются ошибки стиля. Исправьте их, затем снова запустите ESLint и удостоверьтесь, что исправлены все ошибки проверки стиля.
